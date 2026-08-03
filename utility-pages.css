@@ -1,0 +1,32 @@
+.utility-body {
+  min-height: 100vh;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(201,243,72,.16), transparent 25rem),
+    var(--bg);
+}
+.utility-shell { width: min(68rem, 100%); margin-inline: auto; }
+.utility-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 1rem; border-radius: 1rem; color: #f7f3e8; background: var(--dark); }
+.utility-header .brand-logo-shell { flex: 0 0 auto; }
+.utility-header a { text-decoration: none; }
+.utility-header > a:last-child { color: var(--acid); font-size: .82rem; font-weight: 800; }
+.utility-main { margin-block: 1rem; padding: clamp(1.25rem, 4vw, 3.5rem); border: .0625rem solid var(--line); border-radius: 1.5rem; background: rgba(247,243,232,.82); box-shadow: var(--shadow); }
+.utility-main h1 { max-width: 52rem; margin: 0 0 1rem; font-family: "Unbounded"; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -.04em; text-transform: uppercase; }
+.utility-main h2 { margin: 2.5rem 0 .7rem; font-family: "Unbounded"; font-size: 1.15rem; text-transform: uppercase; }
+.utility-main p, .utility-main li { color: #555a50; }
+.utility-main a { color: #657b20; font-weight: 700; }
+.utility-card { margin-top: 2rem; padding: 1.5rem; border: .0625rem solid var(--line); border-radius: 1rem; background: rgba(255,255,255,.42); }
+.utility-card form { display: grid; gap: 1rem; }
+.utility-card label { display: grid; gap: .45rem; font-size: .82rem; font-weight: 700; }
+.utility-card input { height: 3.25rem; padding-inline: 1rem; border: .0625rem solid var(--line); border-radius: .7rem; outline: none; background: #fff; }
+.utility-card input:focus { border-color: var(--acid-dark); box-shadow: 0 0 0 .2rem rgba(201,243,72,.18); }
+.utility-message { min-height: 1.5rem; margin: 0; font-size: .85rem; }
+.utility-message.error { color: var(--rust); }
+.utility-message.success { color: #62791d; }
+.utility-footer { padding: 1rem; color: var(--muted); font-size: .75rem; text-align: center; }
+.status-panel { display: grid; place-items: center; min-height: 18rem; text-align: center; }
+.status-panel strong { display: block; margin-bottom: .7rem; font-family: "Unbounded"; font-size: 1.4rem; text-transform: uppercase; }
+@media (max-width: 40rem) {
+  .utility-header .brand-copy { display: none; }
+  .utility-main { border-radius: 1rem; }
+}

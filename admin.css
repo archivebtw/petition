@@ -1,0 +1,33 @@
+.admin-shell { width: min(86rem, 100%); }
+.admin-login-card { max-width: 32rem; }
+.admin-topline { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+.admin-top-actions { display: flex; gap: .6rem; }
+.admin-filters { display: grid; grid-template-columns: 1fr 16rem; gap: 1rem; margin: 2rem 0 1rem; }
+.admin-filters label { display: grid; gap: .35rem; color: var(--muted); font-size: .75rem; font-weight: 800; text-transform: uppercase; }
+.admin-filters input,
+.admin-filters select { min-height: 3rem; padding: 0 .85rem; border: .0625rem solid var(--line); border-radius: .7rem; background: #fff; }
+.admin-table-wrap { overflow-x: auto; border: .0625rem solid var(--line); border-radius: 1rem; background: rgba(255,255,255,.42); }
+.admin-table { width: 100%; min-width: 68rem; border-collapse: collapse; }
+.admin-table th,
+.admin-table td { padding: 1rem; border-bottom: .0625rem solid var(--line); text-align: left; vertical-align: top; }
+.admin-table th { color: var(--muted); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.admin-table td { font-size: .82rem; }
+.admin-table tbody tr:last-child td { border-bottom: 0; }
+.admin-person { display: grid; gap: .2rem; min-width: 14rem; }
+.admin-person strong { font-family: "Unbounded"; font-size: .75rem; text-transform: uppercase; }
+.admin-person small { color: var(--muted); }
+.admin-comment { max-width: 28rem; white-space: pre-wrap; }
+.admin-status { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .55rem; border-radius: 999rem; font-size: .7rem; font-weight: 800; }
+.admin-status--approved { color: #42520f; background: rgba(201,243,72,.35); }
+.admin-status--pending { color: #7d321f; background: rgba(208,76,53,.14); }
+.admin-status--private { color: #555a50; background: rgba(21,23,18,.08); }
+.admin-row-actions { display: grid; gap: .45rem; min-width: 8rem; }
+.admin-row-actions button { padding: .45rem .65rem; border: .0625rem solid var(--line); border-radius: .55rem; background: #fff; font-size: .72rem; font-weight: 800; cursor: pointer; }
+.admin-row-actions button:hover { border-color: var(--acid-dark); }
+.admin-row-actions .danger { color: #a43824; }
+.admin-empty { padding: 3rem !important; color: var(--muted); text-align: center !important; }
+code { padding: .15rem .35rem; border-radius: .3rem; background: rgba(21,23,18,.08); }
+@media (max-width: 48rem) {
+  .admin-topline { align-items: start; flex-direction: column; }
+  .admin-filters { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Модерация — Фонд прямохождения</title>
+  <link rel="icon" href="assets/tankzor-logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="utility-pages.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="utility-body admin-body">
+  <div class="utility-shell admin-shell">
+    <header class="utility-header">
+      <a class="brand" href="index.html">
+        <span class="brand-logo-shell"><img class="brand-logo" src="assets/tankzor-logo.jpg" alt="" /></span>
+        <span class="brand-copy"><strong>Фонд прямохождения</strong><small>модерация</small></span>
+      </a>
+      <a href="index.html">На сайт →</a>
+    </header>
+
+    <main class="utility-main">
+      <section id="admin-login">
+        <span class="kicker">Закрытая зона</span>
+        <h1>Вход для модератора</h1>
+        <p>Используйте пользователя Supabase Auth, UUID которого добавлен в таблицу <code>petition_admins</code>.</p>
+        <div class="utility-card admin-login-card">
+          <form id="admin-login-form">
+            <label>Email <input type="email" name="email" autocomplete="username" required /></label>
+            <label>Пароль <input type="password" name="password" autocomplete="current-password" required /></label>
+            <button class="button button-primary" type="submit">Войти</button>
+            <p class="utility-message" id="admin-login-message" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="admin-dashboard" hidden>
+        <div class="admin-topline">
+          <div>
+            <span class="kicker">Панель модерации</span>
+            <h1>Подписи и комментарии</h1>
+          </div>
+          <div class="admin-top-actions">
+            <button class="button button-ghost" id="admin-refresh" type="button">Обновить</button>
+            <button class="button button-dark" id="admin-logout" type="button">Выйти</button>
+          </div>
+        </div>
+
+        <div class="admin-filters">
+          <label>Поиск <input id="admin-search" type="search" placeholder="Имя, email, город или комментарий" /></label>
+          <label>Показывать
+            <select id="admin-filter">
+              <option value="all">Все подписи</option>
+              <option value="pending">Ждут модерации</option>
+              <option value="approved">Опубликованы</option>
+              <option value="private">Без согласия на публикацию</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="utility-message" id="admin-message" role="status"></p>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Подписавшийся</th>
+                <th>Комментарий</th>
+                <th>Публикация</th>
+                <th>Дата</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="admin-signatures"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

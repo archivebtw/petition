@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Сатирическая петиция в защиту человеческой эволюции." />
-  <meta name="theme-color" content="#10110f" />
+  <meta name="description" content="Сатирическая петиция в защиту человеческой речи, критического мышления и прямохождения." />
+  <meta name="theme-color" content="#11130f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Остановим цифровую деградацию" />
+  <meta property="og:description" content="Подпишите сатирическую петицию и сохраните человечеству прямохождение." />
+  <meta property="og:image" content="assets/tankzor-logo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Петиция за сохранение эволюции</title>
   <link rel="icon" href="assets/tankzor-logo.jpg" type="image/jpeg" />
   <script>document.documentElement.classList.add("js");</script>
@@ -20,7 +25,7 @@
   <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="На главную">
+    <a class="brand" href="#top" aria-label="На главную" data-easter-logo>
       <span class="brand-logo-shell">
         <img class="brand-logo" src="assets/tankzor-logo.jpg" alt="Логотип Танкзора" data-logo />
         <span class="logo-fallback" aria-hidden="true">ТЗ</span>
@@ -32,7 +37,8 @@
     </a>
 
     <nav class="header-nav" aria-label="Основная навигация">
-      <a href="#arguments">Аргументы</a>
+      <a href="#symptoms">Симптомы</a>
+      <a href="#milestones">Этапы</a>
       <a href="#demands">Требования</a>
       <a class="nav-cta" href="#sign">Подписать</a>
     </nav>
@@ -45,7 +51,7 @@
         <h1 aria-label="Остановим цифровую деградацию">
           <span class="hero-line" aria-hidden="true"><span>Остановим</span></span>
           <span class="hero-line" aria-hidden="true"><span>цифровую</span></span>
-          <span class="hero-line" aria-hidden="true"><span>деградацию</span></span>
+          <span class="hero-line hero-line--long" aria-hidden="true"><span>деградацию</span></span>
         </h1>
         <p class="hero-lead">
           Требуем закрыть Telegram-чат <strong>«Уютное гнездышко танкзора Chatа»</strong>,
@@ -60,7 +66,7 @@
 
       <aside class="hero-card" aria-label="Статистика петиции">
         <div class="hero-logo-shell">
-          <img class="hero-logo" src="assets/tankzor-logo.jpg" alt="Белый кот — логотип петиции" data-logo />
+          <img class="hero-logo" src="assets/tankzor-logo.jpg" alt="Белый кот — логотип петиции" data-logo data-easter-logo />
           <span class="hero-logo-fallback" aria-hidden="true">ТАНКЗОР</span>
         </div>
         <div class="counter-block">
@@ -68,7 +74,10 @@
           <strong class="counter" id="signature-count" aria-live="polite">—</strong>
           <span class="counter-caption">человек подписали петицию</span>
         </div>
-        <p class="progress-copy"><strong id="goal-left">—</strong> подписей до ближайшей цели</p>
+        <div class="hero-goal">
+          <span id="goal-stage">Следующий этап эволюции</span>
+          <strong><span id="goal-left">—</span> подписей осталось</strong>
+        </div>
       </aside>
     </section>
 
@@ -85,7 +94,7 @@
       </div>
     </section>
 
-    <section class="section-shell petition" id="petition">
+    <section class="section-shell petition section-pad" id="petition">
       <div class="section-heading">
         <span>01 / Обращение</span>
         <h2>Человечество зашло слишком далеко</h2>
@@ -94,7 +103,7 @@
         <article class="manifesto">
           <p class="dropcap">Когда-то человек научился добывать огонь, изобрёл колесо, построил города и отправил аппараты в космос. Казалось, эволюция уверенно движется вперёд.</p>
           <p>Но затем появился Telegram-чат <strong>«Уютное гнездышко танкзора Chatа»</strong>.</p>
-          <p>Каждое новое сообщение в нём заставляет учёных сомневаться, правильно ли наши предки вообще покинули океан. Мемы без контекста, бесконечные споры, голосовые сообщения длиной с режиссёрскую версию «Властелина колец» и шутки, после которых мозг автоматически пытается выйти из аккаунта, создают угрозу интеллектуальному комфорту человечества.</p>
+          <p>Каждое новое сообщение в нём заставляет учёных сомневаться, правильно ли наши предки вообще покинули океан. Мемы без контекста, бесконечные споры и голосовые сообщения длиной с режиссёрскую версию «Властелина колец» создают угрозу интеллектуальному комфорту человечества.</p>
           <blockquote>Мы не утверждаем, что этот чат — единственная причина глобальной деградации. Но исключать его пугающе активную роль было бы научно безответственно.</blockquote>
         </article>
 
@@ -107,46 +116,130 @@
       </div>
     </section>
 
-    <section class="arguments" id="arguments">
+    <section class="arguments section-pad" id="symptoms">
       <div class="section-shell">
         <div class="section-heading light-heading">
           <span>02 / Наблюдаемые симптомы</span>
-          <h2>Почему необходимо вмешательство</h2>
+          <h2>Признаки цифровой деградации</h2>
         </div>
         <div class="argument-grid">
-          <article><b>01</b><h3>Стикеры вместо речи</h3><p>Сложная мысль всё чаще заменяется котом, который смотрит в стену.</p></article>
-          <article><b>02</b><h3>Голосовые эпосы</h3><p>Одно предложение разворачивается в аудиосериал без тайм-кодов и финала.</p></article>
-          <article><b>03</b><h3>Мем как аргумент</h3><p>Пересланная картинка получает статус неопровержимого научного источника.</p></article>
-          <article><b>04</b><h3>Возврат на деревья</h3><p>Следующим этапом может стать чат «Гнездо 2.0» с веточной системой модерации.</p></article>
+          <article><b>01</b><span class="symptom-icon">◉</span><h3>Стикеры вместо речи</h3><p>Сложная мысль всё чаще заменяется котом, который смотрит в стену.</p></article>
+          <article><b>02</b><span class="symptom-icon">◖</span><h3>Голосовые эпосы</h3><p>Одно предложение разворачивается в аудиосериал без тайм-кодов и финала.</p></article>
+          <article><b>03</b><span class="symptom-icon">✦</span><h3>Мем как аргумент</h3><p>Пересланная картинка получает статус неопровержимого научного источника.</p></article>
+          <article><b>04</b><span class="symptom-icon">⌁</span><h3>Сообщение «ау»</h3><p>Отправляется через сорок секунд после вопроса и отменяет право собеседника на жизнь.</p></article>
+          <article><b>05</b><span class="symptom-icon">↯</span><h3>Опрос как суд</h3><p>Любой конфликт решается голосованием из двух друзей и одного случайного бота.</p></article>
+          <article><b>06</b><span class="symptom-icon">♧</span><h3>Возврат на деревья</h3><p>Следующий этап — «Гнездо 2.0» с веточной системой модерации.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section-shell demands" id="demands">
+    <section class="milestones section-pad" id="milestones">
+      <div class="section-shell">
+        <div class="section-heading">
+          <span>03 / Эволюционная шкала</span>
+          <h2>Каждая подпись возвращает один навык</h2>
+        </div>
+        <div class="milestone-track" id="milestone-track" aria-label="Этапы сбора подписей">
+          <article class="milestone" data-threshold="10">
+            <span class="milestone-number">10</span>
+            <div><h3>Появилась письменность</h3><p>Участники вспомнили, что мысль может состоять больше чем из одного стикера.</p></div>
+          </article>
+          <article class="milestone" data-threshold="100">
+            <span class="milestone-number">100</span>
+            <div><h3>Освоена связная речь</h3><p>Голосовые короче трёх минут вновь считаются допустимыми.</p></div>
+          </article>
+          <article class="milestone" data-threshold="500">
+            <span class="milestone-number">500</span>
+            <div><h3>Возвращено мышление</h3><p>Пересланный мем больше не принимается без ссылки на рецензируемый банан.</p></div>
+          </article>
+          <article class="milestone" data-threshold="1000">
+            <span class="milestone-number">1000</span>
+            <div><h3>Админка спасена</h3><p>Эволюция временно победила. Обезьянам отказано в правах администратора.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="voices section-pad" id="voices">
+      <div class="section-shell">
+        <div class="section-heading light-heading voices-heading">
+          <div>
+            <span>04 / Свидетельства выживших</span>
+            <h2>Последние сохранившие прямохождение</h2>
+          </div>
+          <button class="text-button" id="refresh-voices" type="button">Обновить ↻</button>
+        </div>
+        <div class="voice-grid" id="voice-grid" aria-live="polite">
+          <article class="voice-card voice-card--placeholder"><p>Загружаем свидетельства людей, которые ещё умеют ставить точки.</p></article>
+        </div>
+        <p class="voices-note">Показываются только одобренные комментарии тех, кто отдельно разрешил публикацию. Email не отображается.</p>
+      </div>
+    </section>
+
+    <section class="quiz-section section-pad" id="quiz">
+      <div class="section-shell quiz-grid">
+        <div class="quiz-copy">
+          <div class="section-heading">
+            <span>05 / Антропологическая экспертиза</span>
+            <h2>Насколько всё запущено?</h2>
+          </div>
+          <p>Пройдите короткую диагностику. Методика не признана ни одним научным институтом, что делает её идеально подходящей для Telegram.</p>
+          <div class="diagnosis-card" id="diagnosis-card" hidden>
+            <span>Диагноз</span>
+            <strong id="diagnosis-title">—</strong>
+            <p id="diagnosis-text">—</p>
+          </div>
+        </div>
+
+        <form class="quiz-form" id="quiz-form">
+          <fieldset>
+            <legend><span>01</span> Сколько длится обычное голосовое?</legend>
+            <label><input type="radio" name="q1" value="0" required /> До минуты — человек ещё борется</label>
+            <label><input type="radio" name="q1" value="1" /> Пять минут — начинается мутация</label>
+            <label><input type="radio" name="q1" value="2" /> Человечество перестало считать</label>
+          </fieldset>
+          <fieldset>
+            <legend><span>02</span> Что считается аргументом?</legend>
+            <label><input type="radio" name="q2" value="0" required /> Факты и связное предложение</label>
+            <label><input type="radio" name="q2" value="1" /> Скриншот без даты и источника</label>
+            <label><input type="radio" name="q2" value="2" /> Мем с обезьяной в очках</label>
+          </fieldset>
+          <fieldset>
+            <legend><span>03</span> Что происходит после удаления чата?</legend>
+            <label><input type="radio" name="q3" value="0" required /> Все идут гулять</label>
+            <label><input type="radio" name="q3" value="1" /> Создаётся резервный чат</label>
+            <label><input type="radio" name="q3" value="2" /> Появляются «Гнездо 2.0» и «Мы просто поговорить»</label>
+          </fieldset>
+          <button class="button button-dark" type="submit">Получить диагноз</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-shell demands section-pad" id="demands">
       <div class="section-heading">
-        <span>03 / Наши требования</span>
+        <span>06 / Наши требования</span>
         <h2>План спасения вида Homo sapiens</h2>
       </div>
       <ol class="demand-list">
-        <li><span>01</span><div><h3>Добровольно закрыть чат</h3><p>Без создания зеркала, резервного гнезда и секретного «чата для своих».</p></div></li>
-        <li><span>02</span><div><h3>Сохранить архив для науки</h3><p>Передать переписку будущим антропологам, лингвистам и особенно смелым криминалистам.</p></div></li>
-        <li><span>03</span><div><h3>Провести реабилитацию</h3><p>Чтение книг, прогулки на свежем воздухе и общение полными предложениями.</p></div></li>
-        <li><span>04</span><div><h3>Запретить ребрендинг</h3><p>Названия «Новое уютное гнездышко», «Гнездо 2.0» и «Мы просто поговорить» не считаются новым проектом.</p></div></li>
+        <li><span>01</span><div><h3>Добровольно закрыть чат</h3><p>Без создания зеркала, резервного гнезда и секретного «чата для своих».</p></div><em>Требуем</em></li>
+        <li><span>02</span><div><h3>Сохранить архив для науки</h3><p>Передать переписку будущим антропологам, лингвистам и особенно смелым криминалистам.</p></div><em>Архивировать</em></li>
+        <li><span>03</span><div><h3>Провести реабилитацию</h3><p>Чтение книг, прогулки на свежем воздухе и общение полными предложениями.</p></div><em>Одобрено</em></li>
+        <li><span>04</span><div><h3>Запретить ребрендинг</h3><p>Названия «Новое уютное гнездышко», «Гнездо 2.0» и «Мы просто поговорить» не считаются новым проектом.</p></div><em>Без лазеек</em></li>
       </ol>
     </section>
 
-    <section class="sign-section" id="sign">
+    <section class="sign-section section-pad" id="sign">
       <div class="section-shell sign-grid">
         <div class="sign-copy">
           <div class="section-heading light-heading">
-            <span>04 / Ваша подпись</span>
+            <span>07 / Ваша подпись</span>
             <h2>Не дадим эволюции развернуться</h2>
           </div>
           <p>Одна подпись может ничего не изменить. Тысяча подписей докажет, что за пределами чата ещё остались люди, способные читать текст длиннее одного сообщения.</p>
           <ul class="privacy-points">
-            <li>Ваш email не публикуется</li>
-            <li>Данные не продаются и не передаются участникам чата</li>
-            <li>На сайте отображается только общий счётчик</li>
+            <li>Email никогда не публикуется</li>
+            <li>Комментарий появляется только с отдельного согласия и после модерации</li>
+            <li>Подпись можно удалить через запрос на странице конфиденциальности</li>
           </ul>
         </div>
 
@@ -164,7 +257,7 @@
           <label>
             <span>Email *</span>
             <input type="email" name="email" maxlength="254" autocomplete="email" placeholder="you@example.com" required />
-            <small>Нужен для защиты от повторных подписей. Публично не отображается.</small>
+            <small>Нужен для защиты от повторных подписей и запроса удаления. Публично не отображается.</small>
           </label>
 
           <label>
@@ -179,9 +272,19 @@
           </label>
 
           <label class="checkbox-row">
-            <input type="checkbox" name="privacy_consent" required />
-            <span>Я согласен(на) на хранение введённых данных в Supabase для учёта подписи.</span>
+            <input type="checkbox" name="public_display_consent" />
+            <span>Разрешаю показать на сайте моё имя или псевдоним, город и комментарий после модерации.</span>
           </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="privacy_consent" required />
+            <span>Согласен(на) на хранение введённых данных для учёта подписи. <a href="privacy.html">Подробнее</a>.</span>
+          </label>
+
+          <div class="turnstile-slot" id="turnstile-slot" hidden>
+            <div id="turnstile-widget"></div>
+            <small>Антибот-проверка защищает петицию от автоматических подписей.</small>
+          </div>
 
           <label class="honeypot" aria-hidden="true" tabindex="-1">
             Сайт
@@ -196,6 +299,22 @@
         </form>
       </div>
     </section>
+
+    <section class="share-section section-pad" id="share">
+      <div class="section-shell share-grid">
+        <div>
+          <span class="kicker">Распространение вида</span>
+          <h2>Предупредите остальных</h2>
+          <p>Ссылка в одном сообщении эффективнее восьмиминутного голосового. Иногда.</p>
+        </div>
+        <div class="share-actions" data-share-actions>
+          <button class="button button-primary" type="button" data-share="native">Поделиться</button>
+          <button class="button button-ghost" type="button" data-share="telegram">Telegram</button>
+          <button class="button button-ghost" type="button" data-share="vk">ВКонтакте</button>
+          <button class="button button-ghost" type="button" data-share="copy">Скопировать ссылку</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -205,7 +324,11 @@
         <p>Сатирический проект в защиту речи, контекста и возможности выключить уведомления.</p>
       </div>
       <p>Петиция не призывает к травле, преследованию, взлому, массовым жалобам или иным действиям против участников сообщества.</p>
-      <a href="#top">Наверх ↑</a>
+      <nav aria-label="Служебные ссылки">
+        <a href="privacy.html">Конфиденциальность</a>
+        <a href="admin.html">Админ-панель</a>
+        <a href="#top">Наверх ↑</a>
+      </nav>
     </div>
   </footer>
 
@@ -213,9 +336,16 @@
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
     <span class="dialog-icon">✓</span>
     <h2>Прямохождение сохранено</h2>
-    <p>Ваша подпись записана. Человечество получило ещё один шанс.</p>
-    <button class="button button-primary dialog-ok" type="button">Продолжить эволюцию</button>
+    <p>Ваша подпись записана. Человечество получило ещё один шанс. Теперь предупредите остальных.</p>
+    <div class="dialog-share" data-share-actions>
+      <button class="button button-primary" type="button" data-share="native">Поделиться</button>
+      <button class="button button-ghost" type="button" data-share="telegram">Telegram</button>
+      <button class="button button-ghost" type="button" data-share="copy">Копировать ссылку</button>
+    </div>
+    <button class="dialog-ok text-button" type="button">Продолжить эволюцию</button>
   </dialog>
+
+  <div class="easter-toast" id="easter-toast" role="status" aria-live="polite">Мяу. Последний оплот критического мышления найден.</div>
 
   <script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js" defer></script>
   <script type="module" src="app.js"></script>

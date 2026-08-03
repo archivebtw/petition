@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Конфиденциальность — Фонд прямохождения</title>
+  <link rel="icon" href="assets/tankzor-logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="utility-pages.css" />
+</head>
+<body class="utility-body">
+  <div class="utility-shell">
+    <header class="utility-header">
+      <a class="brand" href="index.html">
+        <span class="brand-logo-shell"><img class="brand-logo" src="assets/tankzor-logo.jpg" alt="" /></span>
+        <span class="brand-copy"><strong>Фонд прямохождения</strong><small>конфиденциальность</small></span>
+      </a>
+      <a href="index.html">Вернуться к петиции →</a>
+    </header>
+
+    <main class="utility-main">
+      <span class="kicker">Служебный документ</span>
+      <h1>Как хранятся данные подписи</h1>
+      <p>Это сатирическая петиция, но введённые данные обрабатываются всерьёз. Ниже описано, какие сведения сохраняются и для чего они нужны.</p>
+
+      <h2>Какие данные сохраняются</h2>
+      <p>Имя или псевдоним, email, необязательные город и комментарий, согласия, а также дата создания подписи.</p>
+
+      <h2>Зачем нужен email</h2>
+      <p>Email используется для защиты от повторной подписи и для подтверждения запроса на удаление. Он не включается в публичную ленту.</p>
+
+      <h2>Что может отображаться публично</h2>
+      <p>Имя или псевдоним, город и комментарий публикуются только при отдельном согласии пользователя и после одобрения модератором. Согласие можно не ставить — подпись всё равно учитывается в общем счётчике.</p>
+
+      <h2>Где хранятся сведения</h2>
+      <p>Данные записываются в базу проекта Supabase. Публичный ключ сайта не имеет права читать таблицу с личными сведениями; посетителям доступен общий счётчик и отдельная безопасная лента одобренных комментариев.</p>
+
+      <h2>Срок хранения</h2>
+      <p>Подпись хранится до завершения проекта или до её удаления пользователем либо администратором.</p>
+
+      <h2>Связь</h2>
+      <p>По вопросам обработки данных: <a id="contact-email" href="#">адрес настраивается в config.js</a>.</p>
+
+      <section class="utility-card" id="delete-request">
+        <h2>Удалить свою подпись</h2>
+        <p>Введите тот же email, который использовался при подписании. Если защищённая Edge Function и почтовый сервис настроены, на адрес придёт одноразовая ссылка.</p>
+        <form id="deletion-request-form">
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+          </label>
+          <button class="button button-primary" type="submit">Отправить ссылку удаления</button>
+          <p class="utility-message" id="deletion-request-message" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="utility-footer">Фонд прямохождения · сатирическая общественная инициатива</footer>
+  </div>
+  <script type="module" src="privacy.js"></script>
+</body>
+</html>
