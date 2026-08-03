@@ -169,7 +169,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   padding-block: 6.2rem 5rem;
 }
 
-.hero-copy { position: relative; z-index: 2; min-width: 0; }
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  margin-left: -2.5rem;
+}
 
 .eyebrow {
   display: inline-flex;
@@ -441,12 +446,14 @@ body.is-ready .hero-card { opacity: 1; transform: rotate(1.5deg); }
 
 @media (max-width: 68rem) {
   .hero { grid-template-columns: minmax(0, 1fr) minmax(18rem, 20rem); gap: 1.75rem; }
+  .hero-copy { margin-left: -1.25rem; }
   .hero h1 { font-size: 4.45rem; }
   .section-heading h2 { font-size: 3.5rem; }
 }
 
 @media (max-width: 61.25rem) {
   .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 5.8rem; }
+  .hero-copy { margin-left: 0; }
   .hero h1 { max-width: none; font-size: 4.75rem; }
   .hero-card { justify-self: start; max-width: 36rem; transform: none; }
   body.is-ready .hero-card { transform: none; }
