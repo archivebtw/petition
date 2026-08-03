@@ -1,8 +1,8 @@
 // Вставьте данные из Supabase Dashboard → Project Settings → API.
 // Используйте только Publishable key (или legacy anon key).
 // НИКОГДА не вставляйте сюда secret/service_role key.
-export const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-export const SUPABASE_PUBLISHABLE_KEY = "YOUR-PUBLISHABLE-KEY";
+export const SUPABASE_URL = "https://rhyimjyujhcdxqkpgwrj.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_UOPypAn4O9hd6cXtR0R9ww_CCJTniD-";
 
 export const PETITION_SLUG = "uyutnoe-gnezdyshko-tankzora";
 export const SIGNATURE_GOAL_STEP = 1000;
@@ -17,4 +17,4 @@ export const TURNSTILE_SITE_KEY = "";
 export const SECURE_SIGNING_FUNCTION = "sign-petition";
 
 // Адрес для вопросов о данных. Отображается на странице конфиденциальности.
-export const CONTACT_EMAIL = "your-email@example.com";
+export const CONTACT_EMAIL = "archivebtw@gmail.com";
