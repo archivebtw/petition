@@ -411,7 +411,7 @@ body.is-ready .hero-card { opacity: 1; transform: rotate(1.35deg); }
 
 .quiz-section { background: var(--paper); }
 .quiz-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 4.5rem; align-items: start; }
-.quiz-copy { position: sticky; top: 7rem; }
+.quiz-copy { position: sticky; top: 7rem; margin-left: -2rem; }
 .quiz-copy > p { max-width: 31rem; color: var(--muted); font-size: 1.05rem; }
 .diagnosis-card { margin-top: 2rem; padding: 1.5rem; border-left: .35rem solid var(--rust); border-radius: 0 1rem 1rem 0; background: rgba(208,76,53,.08); }
 .diagnosis-card span { display: block; color: var(--rust); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
@@ -513,6 +513,7 @@ body.is-ready .hero-card { opacity: 1; transform: rotate(1.35deg); }
 @media (max-width: 72rem) {
   .hero { grid-template-columns: minmax(0, 1.35fr) minmax(18rem, .65fr); gap: 2rem; }
   .hero-copy { margin-left: 0; }
+  .quiz-copy { margin-left: -1.25rem; }
   .hero h1 { font-size: clamp(3.6rem, 6.1cqw, 4.8rem); }
   .hero-line--long > span { font-size: .81em; }
   .milestone-track { grid-template-columns: repeat(2, 1fr); }
@@ -532,6 +533,7 @@ body.is-ready .hero-card { opacity: 1; transform: rotate(1.35deg); }
   .warning-card,
   .sign-copy,
   .quiz-copy { position: static; }
+  .quiz-copy { margin-left: 0; }
   .argument-grid { grid-template-columns: repeat(2, 1fr); }
   .voice-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
