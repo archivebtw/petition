@@ -11,10 +11,14 @@ const submitButton = form.querySelector("button[type='submit']");
 const countElement = document.querySelector("#signature-count");
 const nextNumberElement = document.querySelector("#next-signature-number");
 const goalLeftElement = document.querySelector("#goal-left");
-const progressBar = document.querySelector("#progress-bar");
 const comment = form.elements.comment;
 const commentLength = document.querySelector("#comment-length");
 const dialog = document.querySelector("#success-dialog");
+const scrollProgress = document.querySelector("#scroll-progress");
+const scrollProgressBar = document.querySelector("#scroll-progress-bar");
+const siteHeader = document.querySelector(".site-header");
+const heroCard = document.querySelector(".hero-card");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const isConfigured =
   SUPABASE_URL.startsWith("https://") &&
@@ -50,6 +54,7 @@ async function supabaseRequest(path, options = {}) {
 }
 
 const numberFormatter = new Intl.NumberFormat("ru-RU");
+let displayedCount = 0;
 
 function hideMissingLogos() {
   document.querySelectorAll("[data-logo]").forEach((image) => {
@@ -59,23 +64,45 @@ function hideMissingLogos() {
   });
 }
 
+function animateCounter(target) {
+  const safeTarget = Math.max(0, Number(target) || 0);
+
+  if (reduceMotion || safeTarget === displayedCount) {
+    displayedCount = safeTarget;
+    countElement.textContent = numberFormatter.format(safeTarget);
+    return;
+  }
+
+  const start = displayedCount;
+  const difference = safeTarget - start;
+  const startedAt = performance.now();
+  const duration = Math.min(1100, Math.max(450, Math.abs(difference) * 24));
+
+  function frame(now) {
+    const elapsed = Math.min(1, (now - startedAt) / duration);
+    const eased = 1 - Math.pow(1 - elapsed, 4);
+    const value = Math.round(start + difference * eased);
+    countElement.textContent = numberFormatter.format(value);
+
+    if (elapsed < 1) requestAnimationFrame(frame);
+    else displayedCount = safeTarget;
+  }
+
+  requestAnimationFrame(frame);
+}
+
 function updateCounter(count) {
   const safeCount = Number.isFinite(count) ? Math.max(0, count) : 0;
   const nextGoal = Math.ceil((safeCount + 1) / SIGNATURE_GOAL_STEP) * SIGNATURE_GOAL_STEP;
-  const previousGoal = Math.max(0, nextGoal - SIGNATURE_GOAL_STEP);
-  const progress = ((safeCount - previousGoal) / SIGNATURE_GOAL_STEP) * 100;
 
-  countElement.textContent = numberFormatter.format(safeCount);
+  animateCounter(safeCount);
   nextNumberElement.textContent = numberFormatter.format(safeCount + 1);
   goalLeftElement.textContent = numberFormatter.format(nextGoal - safeCount);
-  progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
 }
 
 async function loadSignatureCount() {
   if (!isConfigured) {
-    countElement.textContent = "0";
-    nextNumberElement.textContent = "1";
-    goalLeftElement.textContent = numberFormatter.format(SIGNATURE_GOAL_STEP);
+    updateCounter(0);
     formMessage.textContent = "Для записи подписей добавьте ключи Supabase в config.js.";
     return;
   }
@@ -113,13 +140,110 @@ function isRateLimited() {
   return Date.now() - lastSubmit < 15_000;
 }
 
+function updateScrollUI(progress) {
+  const safeProgress = Math.min(1, Math.max(0, Number(progress) || 0));
+  const percentage = Math.round(safeProgress * 100);
+
+  scrollProgressBar.style.transform = `scaleX(${safeProgress})`;
+  scrollProgress.setAttribute("aria-valuenow", String(percentage));
+  siteHeader.classList.toggle("is-scrolled", safeProgress > 0.015);
+}
+
+function getNativeScrollProgress() {
+  const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  return window.scrollY / maxScroll;
+}
+
+function initNativeScrollFallback() {
+  const update = () => updateScrollUI(getNativeScrollProgress());
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update, { passive: true });
+  update();
+}
+
+function initSmoothScroll() {
+  if (reduceMotion || typeof window.Lenis !== "function") {
+    initNativeScrollFallback();
+    return;
+  }
+
+  const lenis = new window.Lenis({
+    autoRaf: true,
+    anchors: {
+      offset: -88,
+      duration: 1.1,
+    },
+    smoothWheel: true,
+    wheelMultiplier: 0.9,
+    touchMultiplier: 1,
+    stopInertiaOnNavigate: true,
+  });
+
+  window.petitionLenis = lenis;
+  lenis.on("scroll", (instance) => updateScrollUI(instance.progress));
+  updateScrollUI(lenis.progress);
+}
+
+function setupRevealAnimations() {
+  const groups = [
+    [".section-heading", "left"],
+    [".manifesto > p, .manifesto > blockquote", "up"],
+    [".warning-card", "right"],
+    [".argument-grid article", "up"],
+    [".demand-list li", "up"],
+    [".sign-copy > *", "left"],
+    [".signature-form", "right"],
+    [".footer-grid > *", "up"],
+  ];
+
+  groups.forEach(([selector, direction]) => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.dataset.reveal = direction;
+      element.style.setProperty("--reveal-delay", `${Math.min(index * 0.07, 0.28)}s`);
+    });
+  });
+
+  const items = document.querySelectorAll("[data-reveal]");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -8% 0px",
+  });
+
+  items.forEach((item) => observer.observe(item));
+}
+
+function initHeroCardMotion() {
+  if (reduceMotion || !window.matchMedia("(pointer: fine)").matches || !heroCard) return;
+
+  heroCard.addEventListener("pointermove", (event) => {
+    const rect = heroCard.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    heroCard.style.transform = `perspective(60rem) rotateX(${-y * 4}deg) rotateY(${x * 5}deg) rotateZ(1.5deg)`;
+  });
+
+  heroCard.addEventListener("pointerleave", () => {
+    heroCard.style.transform = "rotate(1.5deg)";
+  });
+}
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   showMessage("");
 
   if (!form.reportValidity()) return;
 
-  // Простая ловушка для ботов. Реальный пользователь это поле не видит.
   if (normalize(form.elements.website.value)) {
     showMessage("Спасибо! Подпись принята.", "success");
     return;
@@ -171,25 +295,43 @@ form.addEventListener("submit", async (event) => {
   }
 
   setLoading(false);
-
   localStorage.setItem("petition:last-submit", String(Date.now()));
   form.reset();
   commentLength.textContent = "0";
   showMessage("Подпись успешно записана.", "success");
   await loadSignatureCount();
 
-  if (typeof dialog.showModal === "function") dialog.showModal();
+  if (typeof dialog.showModal === "function") {
+    window.petitionLenis?.stop();
+    dialog.showModal();
+  }
 });
 
 comment.addEventListener("input", () => {
   commentLength.textContent = String(comment.value.length);
 });
 
-dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
-dialog.querySelector(".dialog-ok").addEventListener("click", () => dialog.close());
+function closeDialog() {
+  dialog.close();
+  window.petitionLenis?.start();
+}
+
+dialog.querySelector(".dialog-close").addEventListener("click", closeDialog);
+dialog.querySelector(".dialog-ok").addEventListener("click", closeDialog);
 dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
+  if (event.target === dialog) closeDialog();
+});
+
+dialog.addEventListener("cancel", () => {
+  window.petitionLenis?.start();
 });
 
 hideMissingLogos();
+setupRevealAnimations();
+initSmoothScroll();
+initHeroCardMotion();
 loadSignatureCount();
+
+requestAnimationFrame(() => {
+  document.body.classList.add("is-ready");
+});
