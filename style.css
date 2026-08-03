@@ -1,8 +1,0 @@
-body{margin:0;font-family:Arial;background:linear-gradient(#7ec7c9,#d9c98c);height:100vh;display:flex;justify-content:center;align-items:center}
-.game{width:360px;height:640px;border:4px solid #333;overflow:hidden;background:
-linear-gradient(to top,#6ca04f 0 25%,transparent 25%),
-linear-gradient(#7ec7c9,#d9c98c)}
-.top{text-align:center;padding:20px}
-.field{height:500px;position:relative}
-.cow{font-size:120px;position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);cursor:pointer;user-select:none;transition:.08s}
-.cow:active{transform:translate(-50%,-50%) scale(.9)}
